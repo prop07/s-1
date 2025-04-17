@@ -1,4 +1,5 @@
 import React from "react";
+import { FaRegEye } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const FeatureArticles = () => {
@@ -26,7 +27,13 @@ const FeatureArticles = () => {
             </p>
           </a>
           <div className="flex justify-between mt-2 text-xs text-gray-500">
-            <span>March 15, 2023</span>
+                <div className='space-y-1'>
+                        <span className=' flex items-center'>
+                      <FaRegEye size={12} className="mr-1" />
+                        1.2k views
+                        </span>
+                      <span>March 15, 2023</span>
+                      </div>
             <a href="#" className="text-sky-500 flex items-center">
               Continue Reading{" "}
               <MdKeyboardArrowRight size={12} className="ml-1" />
@@ -50,7 +57,13 @@ const FeatureArticles = () => {
             </p>
           </a>
           <div className="flex justify-between mt-2 text-xs text-gray-500">
-            <span>March 15, 2023</span>
+                <div className='space-y-1'>
+                        <span className=' flex items-center'>
+                      <FaRegEye size={12} className="mr-1" />
+                        1.2k views
+                        </span>
+                      <span>March 15, 2023</span>
+                      </div>
             <a href="#" className="text-sky-500 flex items-center">
               Continue Reading{" "}
               <MdKeyboardArrowRight size={12} className="ml-1" />
@@ -74,7 +87,13 @@ const FeatureArticles = () => {
             </p>
           </a>
           <div className="flex justify-between mt-2 text-xs text-gray-500">
-            <span>March 15, 2023</span>
+                <div className='space-y-1'>
+                        <span className=' flex items-center'>
+                      <FaRegEye size={12} className="mr-1" />
+                        1.2k views
+                        </span>
+                      <span>March 15, 2023</span>
+                      </div>
             <a href="#" className="text-sky-500 flex items-center">
               Continue Reading{" "}
               <MdKeyboardArrowRight size={12} className="ml-1" />

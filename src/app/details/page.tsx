@@ -1,4 +1,5 @@
 "use client"
+import NewsDiscussion from "@/components/NewsDiscussion";
 import { useState } from "react";
 
 import React from "react";
@@ -139,6 +140,7 @@ const HomeCarousel:React.FC<HomeCarouselProps>  = ({ slides }) => {
           blanditiis?
         </p>
       </div>
+      <NewsDiscussion/>
     </div>
   );
 };
