@@ -1,5 +1,6 @@
 "use client"
 import NewsDiscussion from "@/components/NewsDiscussion";
+import Image from "next/image";
 import { useState } from "react";
 
 import React from "react";
@@ -71,7 +72,7 @@ const HomeCarousel:React.FC<HomeCarouselProps>  = ({ slides }) => {
             key={index}
             className="w-full flex-shrink-0 aspect-video relative "
           >
-            <img
+            <Image
               src={slide.image}
               alt={slide.alt}
               className="object-cover w-full h-full"
@@ -91,8 +92,9 @@ const HomeCarousel:React.FC<HomeCarouselProps>  = ({ slides }) => {
       <div className=" flex gap-1 px-2">
         {slides.map((slide, index) => (
           <div key={index}>
-            <img
+            <Image
               src={slide.image}
+              alt={slide.image}
               onClick={() => goToSlide(index)}
               className={` w-20 cursor-pointer ${
                 index === activeIndex && " border-2 border-sky-500"

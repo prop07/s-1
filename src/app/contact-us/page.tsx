@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react";
-import { IoManOutline } from "react-icons/io5";
 import { MdOutlineMailOutline, MdOutlinePhone } from "react-icons/md";
 import { LuMapPin, LuSend } from "react-icons/lu";
 
@@ -12,7 +11,7 @@ const Page = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  // const [submitError, setSubmitError] = useState(false);
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -59,11 +58,11 @@ const Page = () => {
               </div>
             )}
 
-            {submitError && (
+            {/* {submitError && (
               <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
                 There was an error sending your message. Please try again.
               </div>
-            )}
+            )} */}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>

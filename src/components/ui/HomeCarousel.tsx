@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 
 type HomeCarouselProps = {
@@ -14,9 +14,9 @@ const HomeCarousel:React.FC<HomeCarouselProps> = ({ slides }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setActiveIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+  }, [slides.length]);
 
   const prevSlide = () => {
     setActiveIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
@@ -32,7 +32,7 @@ const HomeCarousel:React.FC<HomeCarouselProps> = ({ slides }) => {
       const interval = setInterval(nextSlide, 5000);
       return () => clearInterval(interval);
     }
-  }, [activeIndex, isPaused]);
+  }, [activeIndex, isPaused,nextSlide]);
 
   return (
     <div
@@ -50,7 +50,7 @@ const HomeCarousel:React.FC<HomeCarouselProps> = ({ slides }) => {
             key={index}
             className="w-full flex-shrink-0 aspect-video relative "
           >
-            <img
+            <Image
               src={slide.image}
               alt={slide.alt}
               className="object-cover w-full h-full"

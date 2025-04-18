@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { FaRegEye } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -13,7 +14,7 @@ const FeatureArticles = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="border-b border-default-border pb-4">
           <a href="#">
-            <img
+            <Image
               src="https://picsum.photos/500/300"
               alt="Article"
               className="w-full h-40 object-cover mb-2"
@@ -43,7 +44,7 @@ const FeatureArticles = () => {
 
         <div className="border-b border-default-border pb-4">
           <a href="#">
-            <img
+            <Image
               src="https://picsum.photos/500/300"
               alt="Article"
               className="w-full h-40 object-cover mb-2"
@@ -73,7 +74,7 @@ const FeatureArticles = () => {
 
         <div className="border-b border-default-border pb-4">
           <a href="#">
-            <img
+            <Image
               src="https://picsum.photos/500/300"
               alt="Article"
               className="w-full h-40 object-cover mb-2"

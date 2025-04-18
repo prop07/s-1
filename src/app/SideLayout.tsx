@@ -1,13 +1,14 @@
 "use client"
+import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 
 
 const SideLayout = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+ 
 
   return (
     <div>
@@ -32,7 +33,7 @@ const SideLayout = () => {
             {[1, 2, 3, 4].map((item) => (
               <li key={item} className="flex">
                 <a href="#" className="flex-shrink-0 mr-3">
-                  <img
+                  <Image
                     src="https://picsum.photos/500/300"
                     alt="Post"
                     className="w-16 h-12 object-cover"
@@ -130,10 +131,10 @@ const SideLayout = () => {
             />
             <button
               type="submit"
-              disabled={isSubmitting}
+              // disabled={isSubmitting}
               className="px-6 py-3 w-full justify-center bg-sky-500 hover:bg-sky-600 text-white font-medium transition-colors flex items-center gap-2"
             >
-              {isSubmitting ? (
+              {/* {isSubmitting ? (
                 <>
                   <svg
                     className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
@@ -159,7 +160,8 @@ const SideLayout = () => {
                 </>
               ) : (
                 <>Subscribe</>
-              )}
+              )} */}
+               Subscribe
             </button>
           </form>
         </div>

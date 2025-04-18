@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export interface PokemonState {
-  data: any | null
+  data: { name: string; id: number; sprites: { front_default: string } } | null
   loading: boolean
   error: string | null
 }
@@ -21,8 +21,11 @@ export const fetchPokemon = createAsyncThunk(
       const randomId = Math.floor(Math.random() * 898) + 1 // Pokémon API has 898 Pokémon
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
       return response.data
-    } catch (error: any) {
-      return rejectWithValue(error.response?.data || 'Failed to fetch Pokémon')
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error) && error.response) {
+        return rejectWithValue(error.response.data)
+      }
+      return rejectWithValue('Failed to fetch Pokémon')
     }
   }
 )
@@ -37,13 +40,13 @@ export const pokemonSlice = createSlice({
         state.loading = true
         state.error = null
       })
-      .addCase(fetchPokemon.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(fetchPokemon.fulfilled, (state, action: PayloadAction<PokemonState['data']>) => {
         state.loading = false
         state.data = action.payload
       })
-      .addCase(fetchPokemon.rejected, (state, action: PayloadAction<any>) => {
+      .addCase(fetchPokemon.rejected, (state, action) => {
         state.loading = false
-        state.error = action.payload
+        state.error = action.payload as string | null
       })
   },
 })
